@@ -2,7 +2,7 @@ import css from './App.module.css';
 import { useState } from 'react';
 import MarkupCafeInfo from '../CafeInfo/CafeInfo';
 import type { Votes, VoteType } from '../../types/votes';
-import VoteOption from '../VoteOptions/VoteOptions';
+import VoteOptions from '../VoteOptions/VoteOptions';
 import VoteStats from '../VoteStats/VoteStats';
 import Notification from '../Notification/Notification';
 
@@ -34,7 +34,7 @@ export default function App() {
   return (
     <div className={css.app}>
       <MarkupCafeInfo />
-      <VoteOption
+      <VoteOptions
         onVote={handleVote}
         onReset={resetVotes}
         canReset={totalVotes > 0}
@@ -52,8 +52,3 @@ export default function App() {
     </div>
   );
 }
-// Реалізуйте умовний рендеринг компонентів залежно від значення totalVotes.
-//  Компонент VoteStats має рендеритись тільки після того, як буде отримано
-//  хоча б один голос. Тому, якщо значення totalVotes більше нуля, то має
-//  рендеритись компонент VoteStats. Якщо ж відгуків немає (тобто totalVotes
-//   дорівнює 0), то має рендеритись компонент Notification.
